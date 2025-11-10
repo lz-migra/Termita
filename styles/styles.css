@@ -1,0 +1,448 @@
+/* --- ESTILOS BÁSICOS --- */
+
+/* Esta regla asegura que los SVG hereden el color y tengan un tamaño consistente */
+h1 svg, h2 svg, button svg, .icon-title svg {
+    /* Fuerza que el color venga del texto padre */
+    fill: currentColor; 
+    stroke: currentColor; 
+    /* Asegura un tamaño consistente, 1em es el tamaño de la fuente */
+    width: 2em; 
+    height: 2em;
+    /* Alineación vertical para que se vea bien junto al texto */
+    vertical-align: middle; 
+    margin-right: 5px; /* Pequeño espacio a la derecha del icono */
+}
+
+* {
+  transition: all 0.3s ease; /* ⏳ duración 0.3s, tipo de aceleración "ease" */
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--color-card);
+    color: var(--color-card-foreground);
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.dark h1 {
+color: var(--color-foreground)
+}
+
+h1 {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+/* --- BOTÓN DE TEMA --- */
+#theme-toggle-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--color-secondary);
+    color: var(--color-secondary-foreground);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#theme-toggle-btn:hover {
+    filter: brightness(0.9);
+}
+
+/* Corrección para centrar el SVG dentro del botón de tema */
+#theme-toggle-btn svg {
+    width: 1.2em; /* Ajusta el tamaño para que se vea bien dentro del botón */
+    height: 1.2em;
+    margin-right: 0; /* Elimina el margen que lo desplaza */
+}
+
+
+/* --- MENSAJES --- */
+#message {
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: var(--radius-md);
+    font-weight: bold;
+    display: none;
+}
+.success {
+    background-color: var(--color-accent);
+    color: var(--color-accent-foreground);
+    border: none;
+}
+.error {
+    background-color: var(--color-destructive);
+    color: var(--color-destructive-foreground);
+    border: none;
+}
+
+/* --- FORMULARIOS --- */
+.form-section {
+    background-color: var(--color-muted);
+    color: var(--color-muted-foreground);
+    padding: 20px;
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+}
+.form-section h2 {
+    margin-top: 0;
+    color: var(--color-foreground);
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+.input-group input, .input-group select {
+    flex: 1 1 200px;
+    padding: 10px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-input);
+    color: var(--color-foreground);
+    border-radius: var(--radius-md);
+    box-sizing: border-box;
+    box-shadow: var(--shadow-md);
+    font: var(--font-sans);
+}
+
+/* Estilos específicos para campos avanzados */
+#advancedFieldsContainer {
+    /* Estilos robustos basados en ID */
+    display: none; 
+    padding: 15px; 
+    border: 1px dashed var(--color-border); 
+    border-radius: 4px; 
+    border-color: var(--color-border);
+    margin-bottom: 15px; /* <-- AÑADIDO: Espacio debajo del contenedor */
+}
+#advancedFieldsContainer .input-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 5px;
+}
+#advancedFieldsContainer label {
+    flex: 1 1 150px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+#advancedFieldsContainer input {
+    flex: 3 1 250px;
+}
+
+/* Contenedor del botón Opciones Avanzadas - Nuevo ID */
+#advancedOptionsContainer {
+    margin-top: 15px; 
+    margin-bottom: 15px; 
+}
+
+/* Botón Opciones Avanzadas - Nuevo ID */
+#advancedToggleBtn {
+    background-color: var(--color-secondary); 
+    color: var(--color-secondary-foreground);
+    display: none; 
+}
+
+/* ✨ NUEVO: Ajuste específico para el ícono de Opciones Avanzadas */
+#advancedToggleBtn svg {
+    width: 1.3em; /* Reducimos el tamaño del ícono */
+    height: 1.3em;
+    margin-right: 0; /* Dejamos que el 'gap' del botón controle el espacio */
+}
+
+/* Botón 'Mostrar Todo' - Nuevo ID */
+#secondaryBtn {
+    background-color: var(--color-secondary); 
+    color: var(--color-secondary-foreground)
+}
+
+/* Botón 'Cancelar Edición' - Nuevo ID */
+#cancelBtn {
+    display: none; 
+    background-color: var(--color-destructive-foreground);
+    color: var(--color-destructive);
+
+}
+
+button {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    padding: 12px 20px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    font-size: 1em; /* Cambiado a em para consistencia */
+    font-weight: 600;
+    /* ✨ ¡AQUÍ LA MAGIA! Usamos flex para alinear el ícono y el texto */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espacio entre el ícono y el texto */
+    box-shadow: var(--shadow-md);
+    font: var(--font-sans);
+    transition: background-color 0.2s, filter 0.2s;
+}
+
+button:hover {
+    filter: brightness(0.9);
+}
+button:disabled {
+    background-color: var(--color-muted);
+    color: var(--color-muted-foreground);
+    cursor: not-allowed;
+}
+
+/* --- TABLA DE INVENTARIO (NUEVOS ESTILOS) --- */
+.inventory-list-container {
+    margin-top: 20px;
+    background-color: var(--color-card); 
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm); 
+    padding: 20px; 
+}
+
+.inventory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.inventory-header h2 {
+    margin: 0;
+    color: var(--color-foreground);
+    font-size: 1.5em;
+    border-bottom: none; 
+}
+
+.selection-info {
+    font-size: 0.9em;
+    color: var(--color-muted-foreground);
+}
+
+.table-responsive {
+    /* Añade una barra de desplazamiento horizontal si la tabla es muy ancha. */
+    overflow-x: auto;
+    /* Asegura que los menús desplegables no queden cortados. */
+    overflow-y: visible;
+}
+
+.modern-table {
+    width: 100%;
+    border-collapse: separate; 
+    border-spacing: 0 8px; 
+    margin: 0; 
+}
+
+.modern-table th {
+    background-color: transparent; 
+    color: var(--color-muted-foreground); 
+    font-weight: 500; 
+    text-align: left;
+    padding: 12px 15px; 
+    border-bottom: 1px solid var(--color-border); 
+    text-transform: capitalize; 
+    font-size: 0.9em;
+}
+
+.modern-table td {
+    background-color: var(--color-background); 
+    padding: 15px; 
+    text-align: left;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    transition: background-color 0.3s;
+}
+
+.modern-table tbody tr {
+    box-shadow: var(--shadow-xs); 
+    border-radius: var(--radius-md); 
+}
+
+/* ✨ EFECTO HOVER MEJORADO: Iluminación al pasar el ratón */
+.modern-table tbody tr:hover {
+    /* Usamos el color 'accent' que tiene mejor contraste en modo oscuro */
+    background-color: var(--color-accent); 
+    /* Hacemos que la fila parezca "elevarse" con una sombra más notoria */
+    box-shadow: var(--shadow-md);
+}
+
+/* Bordes redondeados para las celdas de las esquinas de cada fila */
+.modern-table tbody tr td:first-child {
+    border-left: 1px solid var(--color-border);
+    border-top-left-radius: var(--radius-md);
+    border-bottom-left-radius: var(--radius-md);
+}
+
+.modern-table tbody tr td:last-child {
+    border-right: 1px solid var(--color-border);
+    border-top-right-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
+}
+
+/* Botón de acciones (tres puntos) */
+.action-dropdown-btn {
+    background-color: var(--color-card); 
+    color: var(--color-muted-foreground); 
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 5px 8px;
+    font-size: 1.2em; 
+    cursor: pointer;
+    line-height: 1; 
+    transition: all 0.2s;
+    box-shadow: var(--shadow-xs);
+    position: relative; 
+}
+
+.action-dropdown {
+    position: relative; /* ¡CLAVE! Establece el contexto de posicionamiento para .action-dropdown-menu */
+    display: inline-block; /* Ocupa solo el espacio necesario */
+}
+
+.action-cell {
+    /* No es estrictamente necesario, pero ayuda a alinear el botón. */
+    text-align: center;
+    width: 50px; /* Ancho fijo para la celda de acciones */
+}
+
+/* ✨ NUEVO: Ajuste para el ícono dentro del botón de acciones */
+.action-dropdown-btn svg {
+    width: 1em; /* Tamaño igual a la fuente del botón */
+    height: 1em;
+    margin: 0; /* Quitar cualquier margen extra */
+    padding: 0; /* Quitar cualquier padding extra */
+}
+
+.action-dropdown-btn:hover {
+    background-color: var(--color-muted);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.action-dropdown-menu {
+    position: absolute; /* Debe ser absoluto respecto a su padre relativo (.action-dropdown) */
+    left: 0; /* Alineado a la izquierda del botón */
+    top: calc(100% + 4px); /* Debajo del botón con un pequeño espacio */
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    min-width: 120px;
+    z-index: 10;
+    display: none; 
+}
+
+.action-dropdown-menu.show {
+    display: block;
+}
+
+.action-dropdown-menu button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px 15px;
+    background-color: transparent;
+    color: var(--color-foreground);
+    border-radius: 0; 
+    font-size: 0.95em;
+    font-weight: normal;
+}
+
+.action-dropdown-menu button {
+    border: none;
+    box-shadow: none;
+}
+
+.action-dropdown-menu button:not(:last-child) {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.action-dropdown-menu button:hover {
+    background-color: var(--color-muted);
+    color: var(--color-primary);
+}
+
+/* Paginación */
+.table-pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.table-pagination button {
+    padding: 8px 15px;
+    background-color: var(--color-secondary);
+    color: var(--color-secondary-foreground);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: 0.9em;
+}
+.table-pagination button:hover:not(:disabled) {
+    background-color: var(--color-secondary-hover);
+}
+.table-pagination button:disabled {
+    background-color: var(--color-muted);
+    color: var(--color-muted-foreground);
+    border-color: var(--color-border);
+}
+
+/* Mensaje sin resultados - Selectores robustos */
+#no-results-message {
+    display: none; 
+    text-align: center; 
+    color: var(--color-muted-foreground); 
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .input-group {
+        flex-direction: column;
+    }
+    .input-group input, .input-group select, .input-group button {
+        width: 100%;
+        flex: auto;
+    }
+    .container {
+        padding: 15px;
+    }
+}
+
+/* ✨ NUEVO: Estilo para el botón de submit en modo edición */
+#submitBtn.btn-editing {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+    /* Un color azul/verde para indicar "actualización" */
+    /* Podrías usar una variable CSS si este color se repite */
+}
